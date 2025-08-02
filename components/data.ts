@@ -1,5 +1,13 @@
 export const songData = [
-  { chord: "Am  Em  G  D", lyric: "hoo..wo..", label: "Reff" },
+  {
+    chord: "G...| C...| Bm...| Bm...| \nAm...| Em...| D...| D...|",
+    label: "Intro",
+  },
+  {
+    chord: "G          C         G",
+    lyric: "Suatu malam adam bercerita",
+    label: "First",
+  },
   { chord: "Am  Em  G  D", lyric: "hoo..wo.." },
   { chord: "G                Dm", lyric: "gila.. tak masuk logika.." },
   { chord: "Am", lyric: "termangu hatiku.." },

@@ -1,26 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import { songData } from "@/components/data";
-import Lyric from "@/components/Lyric";
+import Lyric, { RootObject } from "@/components/Lyric";
 
 export default function Home() {
-  const [semitone, setSemitone] = useState(0);
-
   return (
     <main>
-      <h2>Chord Mangu - 420 (Transpose, hanya #):</h2>
-      <div>
-        <button onClick={() => setSemitone((prev) => prev - 1)}>
-          Turun (-)
-        </button>
-        <span style={{ margin: "0 10px" }}>Semitone: {semitone}</span>
-        <button onClick={() => setSemitone((prev) => prev + 1)}>
-          Naik (+)
-        </button>
-      </div>
+      <h1 className="font-bold text-xl">Chord Mangu</h1>
 
-      <Lyric songData={songData} keyOffset={semitone} />
+      <Lyric songData={songData as RootObject[]} />
     </main>
   );
 }

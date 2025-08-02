@@ -1,39 +1,62 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
-export default function Lyric({ songData, keyOffset = 0 }) {
-  const semitoneOffset = ((keyOffset % 12) + 12) % 12;
+export interface RootObject {
+  label?: string;
+  chord: string;
+  lyric?: string;
+}
+
+export default function Lyric({ songData }: { songData: RootObject[] }) {
+  const [semitone, setSemitone] = useState(0);
 
   const transposedChord = songData.map((line) => ({
     label: line.label || "",
-    chord: line.chord ? transposeChordLine(line.chord, semitoneOffset) : "",
+    chord: line.chord ? transposeChordLine(line.chord, semitone) : "",
     lyric: line.lyric || "",
   }));
 
   return (
-    <div style={{ marginTop: 20 }}>
-      {transposedChord?.map((line, idx) => (
-        <div key={idx} style={{ marginBottom: 12 }}>
-          {line.chord && (
+    <>
+      <div>
+        <button
+          onClick={() => setSemitone((prev) => (((prev - 1) % 12) + 12) % 12)}
+        >
+          Turun (-)
+        </button>
+        <span style={{ margin: "0 10px" }}>Semitone: {semitone}</span>
+        <button
+          onClick={() => setSemitone((prev) => (((prev + 1) % 12) + 12) % 12)}
+        >
+          Naik (+)
+        </button>
+      </div>
+
+      <div style={{ marginTop: 20 }}>
+        {transposedChord?.map((line, idx) => (
+          <div key={idx} style={{ marginBottom: 12 }}>
+            {/* {line.chord && ( */}
             <div>
               <pre
                 style={{
                   margin: 0,
-                  color: "crimson",
+                  color: "yellow",
                   fontWeight: 600,
                   whiteSpace: "pre-wrap",
                 }}
               >
                 {line.label && (
-                  <span className="text-white font-bold">{line.label}: </span>
+                  <div className="text-white font-bold">{line.label} :</div>
                 )}
                 {line.chord}
               </pre>
             </div>
-          )}
-          {line.lyric && <div>{line.lyric}</div>}
-        </div>
-      ))}
-    </div>
+            {/* )} */}
+            {line.lyric && <div>{line.lyric}</div>}
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
