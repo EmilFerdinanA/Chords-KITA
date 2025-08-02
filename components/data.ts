@@ -8,7 +8,7 @@ export const songData = [
     lyric: "kau menggenggam ku menadahnya..",
   },
   {
-    chord: "G         C           G",
+    chord: "G7        C                                     Dm/F",
     lyric: "berdamai dengan apa yang terjadi..",
   },
   { chord: "G         C        D", lyric: "kunci dari semua masalah ini.." },
