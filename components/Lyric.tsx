@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import TransposeButton from "./TransposeButton";
 
 export interface RootObject {
   label?: string;
@@ -18,40 +19,31 @@ export default function Lyric({ songData }: { songData: RootObject[] }) {
 
   return (
     <>
-      <div>
-        <button
-          onClick={() => setSemitone((prev) => (((prev - 1) % 12) + 12) % 12)}
-        >
-          Turun (-)
-        </button>
-        <span style={{ margin: "0 10px" }}>Semitone: {semitone}</span>
-        <button
-          onClick={() => setSemitone((prev) => (((prev + 1) % 12) + 12) % 12)}
-        >
-          Naik (+)
-        </button>
-      </div>
+      <TransposeButton setSemitone={setSemitone} />
 
       <div style={{ marginTop: 20 }}>
         {transposedChord?.map((line, idx) => (
           <div key={idx} style={{ marginBottom: 12 }}>
-            {/* {line.chord && ( */}
-            <div>
-              <pre
-                style={{
-                  margin: 0,
-                  color: "yellow",
-                  fontWeight: 600,
-                  whiteSpace: "pre-wrap",
-                }}
-              >
-                {line.label && (
-                  <div className="text-white font-bold">{line.label} :</div>
-                )}
-                {line.chord}
-              </pre>
-            </div>
-            {/* )} */}
+            {line.chord === "" ? (
+              <div className="mt-10" />
+            ) : (
+              <div>
+                <pre
+                  style={{
+                    margin: 0,
+                    color: "yellow",
+                    fontWeight: 600,
+                    whiteSpace: "pre-wrap",
+                  }}
+                >
+                  {line.label && (
+                    <div className="text-white font-bold">{line.label} :</div>
+                  )}
+                  {line.chord}
+                </pre>
+              </div>
+            )}
+
             {line.lyric && <div>{line.lyric}</div>}
           </div>
         ))}

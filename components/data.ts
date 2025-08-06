@@ -3,7 +3,7 @@ export const songData = [
     chord: "G...| C...| Bm...| Bm...| \nAm...| Em...| D...| D...|",
     label: "Intro",
   },
-  { chord: "\n" },
+  { chord: "" },
   {
     chord: "G          C         G",
     lyric: "Suatu malam adam bercerita",
@@ -18,7 +18,7 @@ export const songData = [
     lyric: "bacaan dan do'a yang mulai berbeda",
   },
   { chord: "Am      Em          D", lyric: "ego dan air mata kita bicara" },
-  { chord: "\n" },
+  { chord: "" },
   { chord: "", label: "Chorus" },
   {
     chord: "G         Dm",
