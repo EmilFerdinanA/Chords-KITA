@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import TransposeButton from "./TransposeButton";
+import AutoScrool from "./AutoScrool";
 
 export interface RootObject {
   label?: string;
@@ -20,6 +21,7 @@ export default function Lyric({ songData }: { songData: RootObject[] }) {
   return (
     <>
       <TransposeButton setSemitone={setSemitone} />
+      <AutoScrool />
 
       <div style={{ marginTop: 20 }}>
         {transposedChord?.map((line, idx) => (
