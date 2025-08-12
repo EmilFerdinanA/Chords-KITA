@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Roboto_Condensed } from "next/font/google";
+import { Courier_Prime } from "next/font/google";
 import "./globals.css";
 
-const roboto = Roboto_Condensed({
-  variable: "--font-roboto-condensed",
+const courierPrime = Courier_Prime({
+  variable: "--font-playwrite",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -19,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} antialiased`}>{children}</body>
+      <body className={`${courierPrime.variable} antialiased`}>{children}</body>
     </html>
   );
 }
