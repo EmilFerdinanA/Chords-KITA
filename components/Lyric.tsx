@@ -22,6 +22,16 @@ export default function Lyric({ songData }: { songData: RootObject[] }) {
     <>
       <TransposeButton setSemitone={setSemitone} />
       <AutoScrool />
+      <hr className="opacity-25" />
+
+      <div className="mt-4">
+        <h4>
+          Do = <span className="text-yellow-400">G</span>
+        </h4>
+        <h4>
+          Birama = <span className="text-yellow-400">4/4</span>
+        </h4>
+      </div>
 
       <div style={{ marginTop: 20 }}>
         {transposedChord?.map((line, idx) => (

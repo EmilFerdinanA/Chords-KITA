@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUp } from "lucide-react";
+import { ArrowDown, ArrowUp, Music2 } from "lucide-react";
 
 interface IProps {
   setSemitone: React.Dispatch<React.SetStateAction<number>>;
@@ -14,19 +14,20 @@ const TransposeButton: React.FC<IProps> = ({ setSemitone }) => {
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 my-4">
       <button
-        className="bg-yellow-500 rounded-full h-8 w-8 flex items-center justify-center"
+        className="bg-yellow-500 text-xl text-white rounded-xl h-10 w-20 flex items-center justify-center"
         onClick={handleDecrease}
       >
-        <ArrowDown size={20} />
+        <Music2 />
+        <ArrowDown size={35} strokeWidth={1} />
       </button>
-
       <button
-        className="bg-yellow-500 rounded-full h-8 w-8 flex items-center justify-center"
+        className="bg-yellow-500 text-xl text-white rounded-xl h-10 w-20 flex items-center justify-center"
         onClick={handleIncrease}
       >
-        <ArrowUp size={20} />
+        <Music2 />
+        <ArrowUp size={35} strokeWidth={1} />
       </button>
     </div>
   );
